@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Invoice {
+  id         String   @id @default(cuid())
+  invoiceNo  String   @unique
+  clientName String
+  amount     Float
+  date       String
+  createdAt  DateTime @default(now())
+}
+
+model Payment {
+  id         String   @id @default(cuid())
+  paymentRef String
+  amount     Float
+  date       String
+  note       String
+  createdAt  DateTime @default(now())
+}
+
+model ReconciliationRun {
+  id           String   @id @default(cuid())
+  matchRate    Float
+  totalRecords Int
+  matchedCount Int
+  exceptions   String
+  results      String
+  createdAt    DateTime @default(now())
+}

@@ -77,9 +77,8 @@ Rules:
 - Date can differ by up to 5 days and still count as a match (bank clearing delay).
 - If nothing fits, matched must be false.
 
-Respond with ONLY this JSON, no other text:
+Respond with ONLY this JSON, no other text. "confidence" means how confident you are in this determination overall — whether that determination is a match or a clear non-match. A well-reasoned "not matched" with obvious partial payment evidence should still score high confidence, not low.
 {"matched": true or false, "paymentId": "id or null", "confidence": 0-100, "reason": "short explanation"}`;
-
     const text = await askGrok(prompt);
 
     let parsed;

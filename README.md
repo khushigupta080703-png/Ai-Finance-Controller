@@ -39,6 +39,7 @@ DATABASE_URL="your-postgres-connection-string"
 GROQ_API_KEY="your-groq-key"
 
 Then open http://localhost:3000/dashboard and click "Run Reconciliation Agent".
+![Architecture](./public/architecture-diagram.svg)
 
 What broke, and how I got out
 
